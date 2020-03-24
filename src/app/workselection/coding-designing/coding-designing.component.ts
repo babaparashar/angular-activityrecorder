@@ -11,7 +11,7 @@ export class CodingDesigningComponent implements OnInit {
 
   ngOnInit() {
   }
- timeLeft: number = 60;
+ timeLeft: number = 7200;
   interval;
   subscribeTimer: any;
 
@@ -35,7 +35,7 @@ export class CodingDesigningComponent implements OnInit {
     },1000)
   }
 
-  pauseTimer() {
+  endTimer() {
     clearInterval(this.interval);
   }
 

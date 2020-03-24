@@ -1,5 +1,5 @@
 import { Component, OnInit , NgModule} from '@angular/core';
-
+import { timer } from 'rxjs';
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
@@ -13,13 +13,24 @@ export class DocumentationComponent implements OnInit {
   }
 timeLeft: number = 7200;
   interval;
+  subscribeTimer: any;
 
-startTimer() {
+
+
+  oberserableTimer() {
+    const source = timer(1000, 2000);
+    const abc = source.subscribe(val => {
+      console.log(val, '-');
+      this.subscribeTimer = this.timeLeft - val;
+    });
+  }
+
+  startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 7200;
+        this.timeLeft = 60;
       }
     },1000)
   }
@@ -27,4 +38,5 @@ startTimer() {
   endTimer() {
     clearInterval(this.interval);
   }
+
 }
