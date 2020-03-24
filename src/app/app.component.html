@@ -1,0 +1,7 @@
+<h1>{{ name }}</h1>
+<button (click)='startTimer()'>Start Timer</button>
+<button (click)='pauseTimer()'>Pause</button>
+
+<p>{{timeLeft}} Seconds Left....</p> 
+<p (click)="oberserableTimer()">Start Observable timer</p> {{subscribeTimer}}
+<router-outlet></router-outlet>
